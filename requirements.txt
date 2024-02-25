@@ -1,0 +1,6 @@
+pandas==2.2.1
+scikit_learn==1.4.1.post1
+seaborn==0.13.2
+torch==2.2.1+cu121
+tqdm==4.66.2
+transformers==4.38.1
