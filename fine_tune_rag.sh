@@ -3,6 +3,7 @@
 python examples/rag/finetune_rag.py \
     --data_dir data/gold \
     --output_dir outputs \
+    --cache_dir outputs/cache \
     --model_name_or_path bart \
     --model_type rag_sequence \
     --fp16 \
@@ -18,8 +19,6 @@ python examples/rag/finetune_rag.py \
     --val_max_target_length 25 \
     --test_max_target_length 25 \
     --label_smoothing 0.1 \
-    --dropout 0.1 \
-    --attention_dropout 0.1 \
     --weight_decay 0.001 \
     --adam_epsilon 1e-08 \
     --max_grad_norm 0.1 \
