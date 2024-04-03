@@ -25,7 +25,9 @@ python fine_tune_rag.py \
     --max_grad_norm 0.1 \
     --lr_scheduler polynomial \
     --learning_rate 3e-05 \
-    --max_epochs 10 \
+    --max_epochs 20 \
+    --dropout 0.1 \
+    --attention_dropout 0.1 \
     --warmup_steps 500 \
     --gradient_accumulation_steps 1 \
     --seed 42 \
