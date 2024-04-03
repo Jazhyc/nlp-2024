@@ -90,11 +90,16 @@ def normalize_answer(s):
 def exact_match_score(prediction, ground_truth):
     return normalize_answer(prediction) == normalize_answer(ground_truth)
 
-def calculate_exact_match(output_lns: List[str], reference_lns: List[str]) -> Dict:
+def calculate_exact_match(output_lns: List[str], reference_lns: List[List[str]]) -> Dict:
     assert len(output_lns) == len(reference_lns)
     em = 0
-    for hypo, pred in zip(output_lns, reference_lns):
-        em += exact_match_score(hypo, pred)
+    for hypo, preds in zip(output_lns, reference_lns):
+
+        # If prediction is empty, continue
+        if not hypo:
+            continue
+
+        em += any(exact_match_score(hypo, pred) for pred in preds)
     if len(output_lns) > 0:
         em /= len(output_lns)
     return {"em": em}
@@ -133,6 +138,21 @@ def count_trainable_parameters(model):
     model_parameters = filter(lambda p: p.requires_grad, model.parameters())
     params = sum([np.prod(p.size()) for p in model_parameters])
     return params
+
+def set_extra_model_params(extra_params, hparams, config):
+    equivalent_param = {p: p for p in extra_params}
+    # T5 models don't have `dropout` param, they have `dropout_rate` instead
+    equivalent_param["dropout"] = "dropout_rate"
+    for p in extra_params:
+        if getattr(hparams, p, None):
+            if not hasattr(config, p) and not hasattr(config, equivalent_param[p]):
+                print("config doesn't have a `{}` attribute".format(p))
+                delattr(hparams, p)
+                continue
+            set_p = p if hasattr(config, p) else equivalent_param[p]
+            setattr(config, set_p, getattr(hparams, p))
+            delattr(hparams, p)
+    return hparams, config
 
 
 def get_checkpoint_callback(output_dir, metric):

@@ -97,12 +97,6 @@ class BaseTransformer(pl.LightningModule):
         else:
             self.config: PretrainedConfig = config
 
-        extra_model_params = ("encoder_layerdrop", "decoder_layerdrop", "dropout", "attention_dropout")
-        for p in extra_model_params:
-            if getattr(self.hparams, p, None):
-                assert hasattr(self.config, p), f"model config doesn't have a `{p}` attribute"
-                setattr(self.config, p, getattr(self.hparams, p))
-
         if tokenizer is None:
             self.tokenizer = AutoTokenizer.from_pretrained(
                 self.hparams.tokenizer_name if self.hparams.tokenizer_name else self.hparams.model_name_or_path,
