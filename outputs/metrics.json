@@ -1,0 +1,16 @@
+{
+    "val": [
+        {
+            "val_avg_loss": 137.03070068359375,
+            "val_avg_em": 0.0,
+            "val_avg_gen_time": 0.1564723253250122,
+            "val_avg_gen_len": 6.5
+        },
+        {
+            "val_avg_loss": 112.77704620361328,
+            "val_avg_em": 0.002173913043478261,
+            "val_avg_gen_time": 0.1484408509472142,
+            "val_avg_gen_len": 8.943478260869565
+        }
+    ]
+}

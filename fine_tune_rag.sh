@@ -1,19 +1,20 @@
 # Example given for fine-tuning RAG on a custom dataset
 
-python examples/rag/finetune_rag.py \
+python fine_tune_rag.py \
     --data_dir data/gold \
     --output_dir outputs \
     --cache_dir outputs/cache \
     --model_name_or_path bart \
     --model_type rag_sequence \
     --fp16 \
+    --fp16_opt_level O1 \
     --gpus 1 \
     --profile \
     --do_train \
     --do_predict \
     --n_val -1 \
     --train_batch_size 8 \
-    --eval_batch_size 1 \
+    --eval_batch_size 8 \
     --max_source_length 128 \
     --max_target_length 25 \
     --val_max_target_length 25 \
@@ -24,6 +25,7 @@ python examples/rag/finetune_rag.py \
     --max_grad_norm 0.1 \
     --lr_scheduler polynomial \
     --learning_rate 3e-05 \
-    --num_train_epochs 100 \
+    --max_epochs 10 \
     --warmup_steps 500 \
     --gradient_accumulation_steps 1 \
+    --seed 42 \

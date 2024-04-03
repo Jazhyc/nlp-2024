@@ -2,3 +2,6 @@ data/raw
 data/bronze
 data/silver
 data/gold
+tmp_trainer
+lightning_logs
+outputs/best_tfmr/model.safetensors

@@ -8,6 +8,7 @@ import logging
 import os
 from pathlib import Path
 from typing import Any, Dict
+import torch
 
 import pytorch_lightning as pl
 from pytorch_lightning.utilities import rank_zero_info
@@ -145,15 +146,7 @@ class BaseTransformer(pl.LightningModule):
                 "weight_decay": 0.0,
             },
         ]
-        if self.hparams.adafactor:
-            optimizer = Adafactor(
-                optimizer_grouped_parameters, lr=self.hparams.learning_rate, scale_parameter=False, relative_step=False
-            )
-
-        else:
-            optimizer = AdamW(
-                optimizer_grouped_parameters, lr=self.hparams.learning_rate, eps=self.hparams.adam_epsilon
-            )
+        optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=self.hparams.learning_rate, eps=self.hparams.adam_epsilon)
         self.opt = optimizer
 
         scheduler = self.get_lr_scheduler()
@@ -169,13 +162,10 @@ class BaseTransformer(pl.LightningModule):
     def total_steps(self) -> int:
         """The number of total training steps that will be run. Used for lr scheduler purposes."""
         num_devices = max(1, self.hparams.gpus)  # TODO: consider num_tpu_cores
-        effective_batch_size = self.hparams.train_batch_size * self.hparams.accumulate_grad_batches * num_devices
+        effective_batch_size = self.hparams.train_batch_size * num_devices
         return (self.dataset_size / effective_batch_size) * self.hparams.max_epochs
 
-    def setup(self, mode):
-        if mode == "test":
-            self.dataset_size = len(self.test_dataloader().dataset)
-        else:
+    def setup(self, stage=None):
             self.train_loader = self.get_dataloader("train", self.hparams.train_batch_size, shuffle=True)
             self.dataset_size = len(self.train_dataloader().dataset)
 
@@ -371,25 +361,19 @@ def generic_train(
 
     train_params = {}
 
-    # TODO: remove with PyTorch 1.6 since pl uses native amp
-    if args.fp16:
-        train_params["precision"] = 16
-        train_params["amp_level"] = args.fp16_opt_level
+    # We needed to make some changes to the original code to make it work with the current version of PyTorch Lightning
 
     if args.gpus > 1:
         train_params["distributed_backend"] = "ddp"
 
-    train_params["accumulate_grad_batches"] = args.accumulate_grad_batches
     train_params["accelerator"] = extra_train_kwargs.get("accelerator", None)
     train_params["profiler"] = extra_train_kwargs.get("profiler", None)
 
-    trainer = pl.Trainer.from_argparse_args(
-        args,
-        weights_summary=None,
-        callbacks=[logging_callback] + extra_callbacks,
+    trainer = pl.Trainer(
+        callbacks=[logging_callback] + extra_callbacks, 
         logger=logger,
-        checkpoint_callback=checkpoint_callback,
-        **train_params,
+        max_epochs=args.max_epochs,
+        **train_params
     )
 
     if args.do_train:
