@@ -3,109 +3,190 @@
         {
             "val_avg_loss": 528.1785888671875,
             "val_avg_em": 0.0,
-            "val_avg_gen_time": 0.35198503732681274,
+            "val_avg_gen_time": 0.3410986363887787,
             "val_avg_gen_len": 25.0
         },
         {
-            "val_avg_loss": 136.9324951171875,
+            "val_avg_loss": 137.34042358398438,
             "val_avg_em": 0.005263157894736842,
-            "val_avg_gen_time": 0.13007083378340067,
-            "val_avg_gen_len": 7.463157894736842
+            "val_avg_gen_time": 0.13220612594955847,
+            "val_avg_gen_len": 8.31578947368421
         },
         {
-            "val_avg_loss": 130.6453857421875,
-            "val_avg_em": 0.002631578947368421,
-            "val_avg_gen_time": 0.13791685386707908,
-            "val_avg_gen_len": 9.357894736842105
-        },
-        {
-            "val_avg_loss": 106.64969635009766,
-            "val_avg_em": 0.002631578947368421,
-            "val_avg_gen_time": 0.1373894584806342,
-            "val_avg_gen_len": 8.557894736842105
-        },
-        {
-            "val_avg_loss": 112.0648193359375,
+            "val_avg_loss": 130.00721740722656,
             "val_avg_em": 0.006578947368421052,
-            "val_avg_gen_time": 0.14707650354034021,
-            "val_avg_gen_len": 11.052631578947368
+            "val_avg_gen_time": 0.14127476685925533,
+            "val_avg_gen_len": 10.473684210526315
         },
         {
-            "val_avg_loss": 113.83511352539062,
-            "val_avg_em": 0.006578947368421052,
-            "val_avg_gen_time": 0.14161017066554019,
-            "val_avg_gen_len": 9.51578947368421
+            "val_avg_loss": 128.36172485351562,
+            "val_avg_em": 0.002631578947368421,
+            "val_avg_gen_time": 0.1396541074702614,
+            "val_avg_gen_len": 8.726315789473684
         },
         {
-            "val_avg_loss": 115.00296783447266,
-            "val_avg_em": 0.010526315789473684,
-            "val_avg_gen_time": 0.14389920454276237,
-            "val_avg_gen_len": 10.294736842105262
+            "val_avg_loss": 128.23257446289062,
+            "val_avg_em": 0.009210526315789473,
+            "val_avg_gen_time": 0.14403981974250393,
+            "val_avg_gen_len": 11.389473684210527
         },
         {
-            "val_avg_loss": 117.75492095947266,
+            "val_avg_loss": 116.19071960449219,
+            "val_avg_em": 0.005263157894736842,
+            "val_avg_gen_time": 0.13343508149448194,
+            "val_avg_gen_len": 8.547368421052632
+        },
+        {
+            "val_avg_loss": 119.06038665771484,
+            "val_avg_em": 0.013157894736842105,
+            "val_avg_gen_time": 0.1403791860530251,
+            "val_avg_gen_len": 9.726315789473684
+        },
+        {
+            "val_avg_loss": 118.93038940429688,
+            "val_avg_em": 0.013157894736842105,
+            "val_avg_gen_time": 0.14139482535813985,
+            "val_avg_gen_len": 10.0
+        },
+        {
+            "val_avg_loss": 122.21133422851562,
+            "val_avg_em": 0.011842105263157895,
+            "val_avg_gen_time": 0.14011860427103545,
+            "val_avg_gen_len": 10.884210526315789
+        },
+        {
+            "val_avg_loss": 123.60797882080078,
+            "val_avg_em": 0.015789473684210527,
+            "val_avg_gen_time": 0.13977514034823368,
+            "val_avg_gen_len": 9.8
+        },
+        {
+            "val_avg_loss": 124.96492767333984,
+            "val_avg_em": 0.018421052631578946,
+            "val_avg_gen_time": 0.13958433490050468,
+            "val_avg_gen_len": 10.273684210526316
+        },
+        {
+            "val_avg_loss": 122.22772216796875,
             "val_avg_em": 0.017105263157894738,
-            "val_avg_gen_time": 0.1459249474500355,
-            "val_avg_gen_len": 9.810526315789474
+            "val_avg_gen_time": 0.14157379332341646,
+            "val_avg_gen_len": 9.694736842105263
         },
         {
-            "val_avg_loss": 119.78736877441406,
-            "val_avg_em": 0.017105263157894738,
-            "val_avg_gen_time": 0.1422031399450804,
-            "val_avg_gen_len": 9.031578947368422
+            "val_avg_loss": 125.69792938232422,
+            "val_avg_em": 0.018421052631578946,
+            "val_avg_gen_time": 0.1357795919242658,
+            "val_avg_gen_len": 9.210526315789474
         },
         {
-            "val_avg_loss": 120.62095642089844,
-            "val_avg_em": 0.02631578947368421,
-            "val_avg_gen_time": 0.1458763671548743,
-            "val_avg_gen_len": 9.852631578947369
+            "val_avg_loss": 126.3760757446289,
+            "val_avg_em": 0.021052631578947368,
+            "val_avg_gen_time": 0.13508690689739428,
+            "val_avg_gen_len": 9.4
         },
         {
-            "val_avg_loss": 120.12767791748047,
+            "val_avg_loss": 127.94305419921875,
             "val_avg_em": 0.02236842105263158,
-            "val_avg_gen_time": 0.14513525711862665,
-            "val_avg_gen_len": 10.378947368421052
+            "val_avg_gen_time": 0.13953066280013637,
+            "val_avg_gen_len": 9.83157894736842
         },
         {
-            "val_avg_loss": 119.48465728759766,
-            "val_avg_em": 0.030263157894736843,
-            "val_avg_gen_time": 0.14621552605378,
-            "val_avg_gen_len": 10.4
+            "val_avg_loss": 128.25588989257812,
+            "val_avg_em": 0.02236842105263158,
+            "val_avg_gen_time": 0.13471076519865738,
+            "val_avg_gen_len": 8.91578947368421
+        },
+        {
+            "val_avg_loss": 129.39895629882812,
+            "val_avg_em": 0.019736842105263157,
+            "val_avg_gen_time": 0.13451742561239946,
+            "val_avg_gen_len": 8.694736842105263
+        },
+        {
+            "val_avg_loss": 130.6578369140625,
+            "val_avg_em": 0.025,
+            "val_avg_gen_time": 0.14083564124609294,
+            "val_avg_gen_len": 9.778947368421052
+        },
+        {
+            "val_avg_loss": 131.23660278320312,
+            "val_avg_em": 0.025,
+            "val_avg_gen_time": 0.13706925981923154,
+            "val_avg_gen_len": 9.4
+        },
+        {
+            "val_avg_loss": 133.0559539794922,
+            "val_avg_em": 0.025,
+            "val_avg_gen_time": 0.14137134897081474,
+            "val_avg_gen_len": 9.83157894736842
+        },
+        {
+            "val_avg_loss": 134.64891052246094,
+            "val_avg_em": 0.02631578947368421,
+            "val_avg_gen_time": 0.1401287571380013,
+            "val_avg_gen_len": 9.56842105263158
         }
     ],
     "train": [
         {
-            "train_avg_loss": 181.13375854492188
+            "train_avg_loss": 181.4286651611328
         },
         {
-            "train_avg_loss": 114.86532592773438
+            "train_avg_loss": 114.29283142089844
         },
         {
-            "train_avg_loss": 81.05200958251953
+            "train_avg_loss": 86.96341705322266
         },
         {
-            "train_avg_loss": 51.78920364379883
+            "train_avg_loss": 65.47362518310547
         },
         {
-            "train_avg_loss": 37.615543365478516
+            "train_avg_loss": 45.56828308105469
         },
         {
-            "train_avg_loss": 29.593111038208008
+            "train_avg_loss": 32.57958984375
         },
         {
-            "train_avg_loss": 24.995407104492188
+            "train_avg_loss": 26.470434188842773
         },
         {
-            "train_avg_loss": 22.221952438354492
+            "train_avg_loss": 23.350439071655273
         },
         {
-            "train_avg_loss": 20.51592445373535
+            "train_avg_loss": 21.704254150390625
         },
         {
-            "train_avg_loss": 18.319120407104492
+            "train_avg_loss": 20.143905639648438
         },
         {
-            "train_avg_loss": 17.46673583984375
+            "train_avg_loss": 18.531227111816406
+        },
+        {
+            "train_avg_loss": 17.536758422851562
+        },
+        {
+            "train_avg_loss": 16.67768669128418
+        },
+        {
+            "train_avg_loss": 15.940934181213379
+        },
+        {
+            "train_avg_loss": 15.206526756286621
+        },
+        {
+            "train_avg_loss": 14.527358055114746
+        },
+        {
+            "train_avg_loss": 13.80721664428711
+        },
+        {
+            "train_avg_loss": 13.104719161987305
+        },
+        {
+            "train_avg_loss": 12.354695320129395
+        },
+        {
+            "train_avg_loss": 11.512351036071777
         }
     ]
 }

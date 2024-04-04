@@ -5,3 +5,4 @@ data/gold
 tmp_trainer
 lightning_logs
 outputs/best_tfmr/model.safetensors
+outputs/model.ckpt

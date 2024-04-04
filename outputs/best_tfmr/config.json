@@ -384,7 +384,7 @@
   "reduce_loss": false,
   "retrieval_batch_size": 8,
   "retrieval_vector_size": 768,
-  "save_step": 12,
+  "save_step": 21,
   "title_sep": " / ",
   "torch_dtype": "float32",
   "transformers_version": "4.38.1",
