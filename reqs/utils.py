@@ -62,10 +62,12 @@ def parse_sh_args(filepath):
 # All of the below functions are obtained from here, we provide our explanation for each of them
 # https://github.com/huggingface/transformers/blob/9b0a8ea7d1d6226b76cfdc645ce65e21157e2b50/examples/research_projects/rag/utils_rag.py#
 
+# Calls the function f on each element of the iterable x and returns a list of the results
 def lmap(f: Callable, x: Iterable) -> List:
     """list(map(f, x))"""
     return list(map(f, x))
 
+# Flattens a list of lists
 def flatten_list(summary_ids: List[List]):
     return list(itertools.chain.from_iterable(summary_ids))
 
@@ -87,9 +89,11 @@ def normalize_answer(s):
 
     return white_space_fix(remove_articles(remove_punc(lower(s))))
 
+# Returns True if the prediction is an exact match to the ground truth
 def exact_match_score(prediction, ground_truth):
     return normalize_answer(prediction) == normalize_answer(ground_truth)
 
+# Returns the exact match score for a list of predictions and ground truths
 def calculate_exact_match(output_lns: List[str], reference_lns: List[List[str]]) -> Dict:
     assert len(output_lns) == len(reference_lns)
     em = 0
@@ -115,7 +119,8 @@ def trim_batch(
         return input_ids[:, keep_column_mask]
     else:
         return (input_ids[:, keep_column_mask], attention_mask[:, keep_column_mask])
-    
+
+# Encodes a line using the tokenizer
 def encode_line(tokenizer, line, max_length, padding_side, pad_to_max_length=True, return_tensors="pt"):
     extra_kw = {"add_prefix_space": True} if isinstance(tokenizer, BartTokenizer) and not line.startswith(" ") else {}
     tokenizer.padding_side = padding_side
@@ -129,16 +134,19 @@ def encode_line(tokenizer, line, max_length, padding_side, pad_to_max_length=Tru
         **extra_kw,
     )
 
+# Saves a dictionary to a json file
 def save_json(content, path, indent=4, **json_dump_kwargs):
     with open(path, "w") as f:
         json.dump(content, f, indent=indent, **json_dump_kwargs)
 
 
+# This function is used to count the number of trainable parameters in a model
 def count_trainable_parameters(model):
     model_parameters = filter(lambda p: p.requires_grad, model.parameters())
     params = sum([np.prod(p.size()) for p in model_parameters])
     return params
 
+# This function is used to set the extra model parameters such as dropout
 def set_extra_model_params(extra_params, hparams, config):
     equivalent_param = {p: p for p in extra_params}
     # T5 models don't have `dropout` param, they have `dropout_rate` instead
@@ -154,7 +162,7 @@ def set_extra_model_params(extra_params, hparams, config):
             delattr(hparams, p)
     return hparams, config
 
-
+# Use to get the best checkpoint based on the metric
 def get_checkpoint_callback(output_dir, metric):
     """Saves the best model by validation EM score."""
     if metric == "rouge2":
@@ -180,6 +188,7 @@ def get_checkpoint_callback(output_dir, metric):
     return checkpoint_callback
 
 
+# Used to stop training early if the metric doesn't improve
 def get_early_stopping_callback(metric, patience):
     return EarlyStopping(
         monitor=f"val_{metric}",  # does this need avg?
@@ -189,6 +198,8 @@ def get_early_stopping_callback(metric, patience):
     )
 
 
+# This class is used to log some parameters of the model
+# We personally do not use this class, but it is provided here for reference
 class Seq2SeqLoggingCallback(pl.Callback):
     def on_batch_end(self, trainer, pl_module):
         lrs = {f"lr_group_{i}": param["lr"] for i, param in enumerate(pl_module.trainer.optimizers[0].param_groups)}
