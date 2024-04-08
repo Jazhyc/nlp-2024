@@ -1,0 +1,12 @@
+datasets==2.18.0
+faiss_cpu==1.8.0
+gdown==5.1.0
+matplotlib==3.8.3
+numpy==1.26.4
+pandas==2.2.1
+pytorch_lightning==2.2.1
+sentence_transformers==2.5.1
+torch==2.2.1+cu121
+tqdm==4.66.2
+transformers==4.38.1
+Wikipedia_API==0.6.0
